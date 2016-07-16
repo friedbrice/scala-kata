@@ -4,7 +4,7 @@ Code Katas for experienced programmers beginning Scala.
 
 ## I. SmallestTwo
 
-**Given:** a finite list of integers, return the smallest and the second smallest,
+**Given:** a finite list of integers,
 
 **When:** your function is called on said list,
 
