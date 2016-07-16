@@ -64,7 +64,7 @@ _Source:_ "Can you get the loop?" by Devouring @ CodeWars.
 
 ## VII. PolymorphicMapReduce
 
-Implement a function with type signature `(T => S) => (S => R => R) => R => List[T] => R`.
+Implement a higher-order function with type signature `(T => S) => (S => R => R) => R => List[T] => R`.
 
 The only requirement is that it must be possible for the return value to be different from the third argument.
 
@@ -72,10 +72,10 @@ _Source:_ A simplified version of this kata is a homework problem from Odersky's
 
 ## VIII. UsePolymorphicMapReduce
 
-Re-implement "Find the Smallest Two" and "Sums and Products" using the polymorphic map reduce higher-order function.
+Re-implement "Find the Smallest Two" and "Sums and Products" using the polymorphic map reduce function.
 
 ## IX. TreePolymorphicMapReduce
 
-Implement a function with type signature `(T => S) => (S => R => R) => R => Tree[T] => R`.
+Implement a higher-order function with type signature `(T => S) => (S => R => R) => R => Tree[T] => R`.
 
 The only requirement is that it must be possible for the return value to be different from the third argument.
