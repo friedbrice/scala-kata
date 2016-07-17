@@ -1,6 +1,6 @@
 object UsePolymorphicMapReduce {
 
-  /*
+  /**
    * VIII. UsePolymorphicMapReduce
    *
    * Re-implement "SmallestTwo" and "SumsProds" using the polymorphic
