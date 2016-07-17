@@ -23,9 +23,41 @@ object FindLoop {
 
 object FindLoopTests extends FlatSpec {
 
-  "findLoop" should "return the first node in a two-node cycle" in {
-    // given: a two-node cycle
-    lazy val node1 = ListNode('A', node2)
-    lazy val node2 = ListNode('B', node1)
+  "findLoop" should "return node A in list ABA" in {
+    // given: a list ABA
+    lazy val nodeA = ListNode('A', nodeB)
+    lazy val nodeB = ListNode('B', nodeA)
+
+    // when: findLoop is called with node A
+    lazy val result = findLoop(nodeA)
+
+    // then: the result should be node A
+    result should be nodeA
+  }
+
+  "findLoop" should "return node B in list ABCB" in {
+    // given: a list ABCB
+    lazy val nodeA = ListNode('A', nodeB)
+    lazy val nodeB = ListNode('B', nodeC)
+    lazy val nodeC = ListNode('C', nodeB)
+
+    // when: findLoop is called with node A
+    lazy val result = findLoop(nodeA)
+
+    // then: the result should be node B
+    result should be nodeB
+  }
+
+  "findLoop" should "return node A in list ABCA" in {
+    // given: a list ABCA
+    lazy val nodeA = ListNode('A', nodeB)
+    lazy val nodeB = ListNode('B', nodeC)
+    lazy val nodeC = ListNode('C', nodeA)
+
+    // when: findLoop is called with node A
+    lazy val result = findLoop(nodeA)
+
+    // then: the result should be node A
+    result should be nodeA
   }
 }
