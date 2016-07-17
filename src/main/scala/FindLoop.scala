@@ -14,7 +14,7 @@ object FindLoop {
    * Then: your function returns the node at which the list rejoins itself.
    */
 
-  case class ListNode(value : Char, next : ListNode)
+  case class ListNode(label : Char, next : ListNode)
 
   def findLoop
   : ListNode => ListNode
@@ -32,7 +32,7 @@ object FindLoopTests extends FlatSpec {
     lazy val result = findLoop(nodeA)
 
     // then: the result should be node A
-    result should be nodeA
+    result should be (nodeA)
   }
 
   "findLoop" should "return node B in list ABCB" in {
@@ -45,7 +45,7 @@ object FindLoopTests extends FlatSpec {
     lazy val result = findLoop(nodeA)
 
     // then: the result should be node B
-    result should be nodeB
+    result should be (nodeB)
   }
 
   "findLoop" should "return node A in list ABCA" in {
@@ -58,6 +58,6 @@ object FindLoopTests extends FlatSpec {
     lazy val result = findLoop(nodeA)
 
     // then: the result should be node A
-    result should be nodeA
+    result should be (nodeA)
   }
 }
