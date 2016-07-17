@@ -3,8 +3,6 @@ import org.scalatest.{FlatSpec, FunSuite, Matchers}
 
 class PathfindingTests extends FlatSpec with Matchers {
 
-  def pathfinding(nodeA: GraphNode) = ???
-
   "pathfinding" should "return start when start == end" in {
     // given: a graph node A
     lazy val nodeA = GraphNode('A', List())
