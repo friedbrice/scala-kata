@@ -22,7 +22,7 @@ object PolymorphicMapReduce {
   }
 }
 
-object PolymorphicMapReduceTests {
+object PolymorphicMapReduceTests extends FlatSpec {
 
   "mapReduce" should "return z when called on List()" in {
     // given: some f, g, and zs

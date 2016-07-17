@@ -20,7 +20,7 @@ object Pathfinding {
     = start     => end       => ???
 }
 
-object PathfindingTests {
+object PathfindingTests extends FlatSpec {
 
   "pathfinding" should "return start when start == end" in {
     // given: a graph node A

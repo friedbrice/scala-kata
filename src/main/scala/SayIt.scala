@@ -1,3 +1,6 @@
+import SayIt._
+import org.scalatest.FlatSpec
+
 object SayIt {
 
   /**
@@ -19,8 +22,48 @@ object SayIt {
   def sayIt
     : Option[String] => Unit
     = maybeString    => ???
+    // TODO: The type signature here is wrong. I'd like it to automatically coerce to Optional[String]
 }
 
-object SayItTests {
+class SayItTests extends FlatSpec {
 
+  "sayIt" should "do nothing if argument is null" in {
+    // given: nothing
+
+    // when: sayIt is called with no argument
+    sayIt()
+
+    // then: nothing should be printed
+    // TODO: how to check that IO happened/didn't happen?
+  }
+
+  "sayIt" should "be chainable" in {
+    // given: nothing
+
+    // when: sayIt is chained with a string and a null
+    sayIt("hi")()
+
+    // then: "hi" should be printed
+    // TODO: how to check that IO happened/didn't happen?
+  }
+
+  "sayIt" should "do nothing when the last argument is not null" in {
+    // given: nothing
+
+    // when: sayIt is chained with two strings
+    sayIt("hi")(" there")
+
+    // then: nothing should be printed
+    // TODO: how to check that IO happened/didn't happen?
+  }
+
+  "sayIt" should "model state" in {
+    // given: nothing
+
+    // when: sayIt is chained with multiple arguments, the last being null
+    sayIt("hi")(" there")(" you")()
+
+    // then: "hi there you" should be printed
+    // TODO: how to check that IO happened/didn't happen?
+  }
 }
