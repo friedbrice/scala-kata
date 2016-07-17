@@ -1,5 +1,5 @@
 import FindLoop._
-import org.scalatest.FlatSpec
+import org.scalatest.{FlatSpec, Matchers}
 
 object FindLoop {
 
@@ -21,7 +21,7 @@ object FindLoop {
   = start    => ???
 }
 
-object FindLoopTests extends FlatSpec {
+class FindLoopTests extends FlatSpec with Matchers {
 
   "findLoop" should "return node A in list ABA" in {
     // given: a list ABA
