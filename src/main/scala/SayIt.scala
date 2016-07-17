@@ -25,7 +25,7 @@ object SayIt {
     // TODO: The type signature here is wrong. I'd like it to automatically coerce to Optional[String]
 }
 
-class SayItTests extends FlatSpec {
+object SayItTests extends FlatSpec {
 
   "sayIt" should "do nothing if argument is null" in {
     // given: nothing
