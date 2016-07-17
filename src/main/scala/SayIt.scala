@@ -41,7 +41,7 @@ object SayItTests extends FlatSpec {
     // given: nothing
 
     // when: sayIt is called with a string and a null
-    val temp = sayIt("hi")
+    lazy val temp = sayIt("hi")
 
     // then: temp should be a function
     // TODO: how to assert something's type?
