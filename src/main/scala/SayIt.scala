@@ -40,11 +40,11 @@ class SayItTests extends FlatSpec {
   "sayIt" should "be chainable" in {
     // given: nothing
 
-    // when: sayIt is chained with a string and a null
-    sayIt("hi")()
+    // when: sayIt is called with a string and a null
+    val temp = sayIt("hi")
 
-    // then: "hi" should be printed
-    // TODO: how to check that IO happened/didn't happen?
+    // then: temp should be a function
+    // TODO: how to assert something's type?
   }
 
   "sayIt" should "do nothing when the last argument is not null" in {
