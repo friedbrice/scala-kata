@@ -14,6 +14,8 @@ object ValidateTree {
    * to the right have a larger integer, your function returns false otherwise.
    */
 
+  // Below, we define a data struct `Tree[T]` with the following shape:
+  // Tree[T] = Leaf | Branch(value : T, left : Tree[T], right : Tree[T])
   sealed trait Tree[+T]
   case object Leaf extends Tree[Nothing]
   case class Branch[T](value : T, left : Tree[T], right : Tree[T]) extends Tree[T]

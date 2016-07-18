@@ -5,9 +5,9 @@ object Pathfinding {
   /**
    * VI. Pathfinding
    *
-   * Given: a connected directed graph,
+   * Given: two nodes of a connected directed graph,
    *
-   * When: your function is called with said graph and two nodes,
+   * When: your function is called with said nodes,
    *
    * Then: your function returns one minimal path between the two nodes.
    */
