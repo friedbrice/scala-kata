@@ -51,21 +51,30 @@ class PolymorphicMapReduce$Test extends FlatSpec with Matchers {
   }
 
   "mapReduce" should "apply f" in {
-    // given: some fs, gs, and zs
-    lazy val f1 = (x : Int) => x * x
-    lazy val g1 = (x : Int) => (y : Int) => x + y
-    lazy val z1 = 0
-
-    lazy val f2 = (x : Int) => x.toChar
-    lazy val g2 = (x : Char) => (y : String) => x + y
-    lazy val z2 = ""
+    // given: some f, g, z, and l
+    lazy val f = (x : Int) => x * x
+    lazy val g = (x : Int) => (y : Int) => x + y
+    lazy val z = 0
+    lazy val l = List(1,2,3)
 
     // when: mapReduce is called
-    lazy val result1 = mapReduce(f1)(g1)(z1)(List(1,2,3))
-    lazy val result2 = mapReduce(f2)(g2)(z2)(List(1,2,3))
+    lazy val result = mapReduce(f)(g)(z)(l)
 
-    // then: the results are not the zs
-    result1 should be (14)
-    result2 should be ("321")
+    // then: the result should be 14
+    result should be (14)
+  }
+
+  "mapReduce" should "preserve order" in {
+    // given: some f, g, z, and l
+    lazy val f = (x : Int) => x.toString.head
+    lazy val g = (x : Char) => (y : String) => x + y
+    lazy val z = ""
+    lazy val l = List(1,2,3)
+
+    // when: mapReduce is called
+    lazy val result = mapReduce(f)(g)(z)(l)
+
+    // then: the result should be "123"
+    result should be ("123")
   }
 }
