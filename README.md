@@ -72,7 +72,7 @@ _Source:_ A simplified version of this kata is a homework problem from Odersky's
 
 ## VIII. UsePolymorphicMapReduce
 
-Re-implement "Find the Smallest Two" and "Sums and Products" using the polymorphic map reduce function.
+Re-implement "SmallestTwo" and "SumsProds" using the polymorphic map reduce function.
 
 ## IX. TreePolymorphicMapReduce
 
