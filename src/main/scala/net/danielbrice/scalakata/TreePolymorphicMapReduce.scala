@@ -24,7 +24,3 @@ object TreePolymorphicMapReduce {
 
     }
 }
-
-object TreePolymorphicMapReduceTests {
-
-}

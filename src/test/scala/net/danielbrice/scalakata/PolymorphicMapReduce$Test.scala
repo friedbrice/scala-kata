@@ -10,9 +10,9 @@ class PolymorphicMapReduce$Test extends FlatSpec with Matchers {
     lazy val fStub = (x : Any) => x
     lazy val gStub = (x : Any) => (y : Any) => y
 
-    lazy val z1 = ()
-    lazy val z2 = 0
-    lazy val z3 = 'a'
+    lazy val z1 : Unit = ()
+    lazy val z2 : Int = 0
+    lazy val z3 : Char = 'a'
 
     // when: mapReduce is called with f, g, and zs, on List()
     lazy val result1 = mapReduce(fStub)(gStub)(z1)(List())

@@ -25,7 +25,3 @@ object UsePolymorphicMapReduce {
     : List[(Double, Double)] => ((Double, Double),(Double, Double))
     = pairs                  => ???
 }
-
-object UsePolymorphicMapReduceTests {
-
-}
