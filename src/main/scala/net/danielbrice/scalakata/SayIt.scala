@@ -18,8 +18,27 @@ object SayIt {
    * in a closure.
    */
 
-  def sayIt
-    : Option[String] => Unit
-    = maybeString    => ???
-    // TODO: The type signature here is wrong. I'd like it to automatically coerce to Optional[String]
+  sealed trait Sayable {
+    def apply(optStr : Option[String]) : Sayable
+  }
+
+  class SayableUnit(u : Unit) extends Sayable {
+    val unit : Unit = u
+
+    def apply(optStr : Option[String]) : Sayable = {
+      new SayableUnit(u)
+    }
+  }
+
+  class SayableFunction(f : Option[String] => Sayable) extends Sayable {
+    val function : Option[String] => Sayable = f
+
+    def apply(optStr : Option[String]) : Sayable = {
+      this.function(optStr)
+    }
+  }
+
+  def sayIt[T]
+    : Option[String] => Sayable
+    = optStr    => ???
 }
