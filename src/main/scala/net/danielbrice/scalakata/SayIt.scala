@@ -18,10 +18,13 @@ object SayIt {
    * in a closure.
    */
 
+  // a trait is like a Java interface
+  // the `Sayable` trait is "sealed" to prevent other packages from implementing it
   sealed trait Sayable {
     def apply(optStr : Option[String]) : Sayable
   }
 
+  // a Sayable can be a (wrapped) `Unit`
   class SayableUnit(u : Unit) extends Sayable {
     val unit : Unit = u
 
@@ -30,6 +33,7 @@ object SayIt {
     }
   }
 
+  // or a Sayable can be a (wrapped) function
   class SayableFunction(f : Option[String] => Sayable) extends Sayable {
     val function : Option[String] => Sayable = f
 
@@ -38,6 +42,8 @@ object SayIt {
     }
   }
 
+  // sayIt take `Some(string)` or `None`
+  // sayIt returns `SayableUnit(u)` or `SayableFunction(f)`
   def sayIt[T]
     : Option[String] => Sayable
     = optStr    => ???
