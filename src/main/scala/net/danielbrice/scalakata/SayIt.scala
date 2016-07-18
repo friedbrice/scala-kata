@@ -25,7 +25,7 @@ object SayIt {
   }
 
   // a Sayable can be a (wrapped) `Unit`
-  class SayableUnit(u : Unit) extends Sayable {
+  case class SayableUnit(u : Unit) extends Sayable {
     val unit : Unit = u
 
     def apply(optStr : Option[String]) : Sayable = {
@@ -34,7 +34,7 @@ object SayIt {
   }
 
   // or a Sayable can be a (wrapped) function
-  class SayableFunction(f : Option[String] => Sayable) extends Sayable {
+  case class SayableFunction(f : Option[String] => Sayable) extends Sayable {
     val function : Option[String] => Sayable = f
 
     def apply(optStr : Option[String]) : Sayable = {
