@@ -1,5 +1,6 @@
-import SumsProds._
-import org.scalatest.FlatSpec
+package net.danielbrice.scalakata
+
+import net.danielbrice.scalakata.SumsProds._
 
 object SumsProds {
 

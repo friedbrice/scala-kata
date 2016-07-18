@@ -1,7 +1,9 @@
-import Pathfinding._
-import org.scalatest.{FlatSpec, FunSuite, Matchers}
+package net.danielbrice.scalakata
 
-class PathfindingTests extends FlatSpec with Matchers {
+import net.danielbrice.scalakata.Pathfinding._
+import org.scalatest.{FlatSpec, Matchers}
+
+class Pathfinding$Test extends FlatSpec with Matchers {
 
   "pathfinding" should "return start when start == end" in {
     // given: a graph node A

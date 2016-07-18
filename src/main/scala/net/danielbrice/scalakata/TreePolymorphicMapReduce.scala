@@ -1,3 +1,5 @@
+package net.danielbrice.scalakata
+
 object TreePolymorphicMapReduce {
 
   /**

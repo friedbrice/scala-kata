@@ -1,7 +1,9 @@
-import PolymorphicMapReduce._
+package net.danielbrice.scalakata
+
+import net.danielbrice.scalakata.PolymorphicMapReduce._
 import org.scalatest.{FlatSpec, Matchers}
 
-class PolymorphicMapReduceTests extends FlatSpec with Matchers {
+class PolymorphicMapReduce$Test extends FlatSpec with Matchers {
 
   "mapReduce" should "return z when called on List()" in {
     // given: some f, g, and zs
@@ -25,8 +27,6 @@ class PolymorphicMapReduceTests extends FlatSpec with Matchers {
 
   "mapReduce" should "apply g" in {
     // given: some gs, zs, and ls
-    lazy val fStub = (x : Any) => x
-
     lazy val g1 = (x : Int) => (y : Int) => x + y
     lazy val z1 = 1
     lazy val l1 = List(2)
@@ -40,9 +40,9 @@ class PolymorphicMapReduceTests extends FlatSpec with Matchers {
     lazy val l3 = List(1)
 
     // when: mapReduce is called
-    lazy val result1 = mapReduce(fStub)(g1)(z1)(l1)
-    lazy val result2 = mapReduce(fStub)(g2)(z2)(l2)
-    lazy val result3 = mapReduce(fStub)(g3)(z3)(l3)
+    lazy val result1 = mapReduce((x : Int) => x)(g1)(z1)(l1)
+    lazy val result2 = mapReduce((x : String) => x)(g2)(z2)(l2)
+    lazy val result3 = mapReduce((x : Int) => x)(g3)(z3)(l3)
 
     // then: the results are not the zs
     result1 should be (3)
@@ -66,6 +66,6 @@ class PolymorphicMapReduceTests extends FlatSpec with Matchers {
 
     // then: the results are not the zs
     result1 should be (14)
-    result2 should be ("123")
+    result2 should be ("321")
   }
 }

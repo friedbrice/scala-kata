@@ -1,4 +1,6 @@
-import FindLoop._
+package net.danielbrice.scalakata
+
+import net.danielbrice.scalakata.FindLoop._
 import org.scalatest.{FlatSpec, Matchers}
 
 class FindLoop$Test extends FlatSpec with Matchers {

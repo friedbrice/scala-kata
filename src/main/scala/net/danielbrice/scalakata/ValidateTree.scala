@@ -1,5 +1,6 @@
-import ValidateTree._
-import org.scalatest.FlatSpec
+package net.danielbrice.scalakata
+
+import net.danielbrice.scalakata.ValidateTree._
 
 object ValidateTree {
 

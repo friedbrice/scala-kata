@@ -1,5 +1,6 @@
-import SayIt._
-import org.scalatest.FlatSpec
+package net.danielbrice.scalakata
+
+import net.danielbrice.scalakata.SayIt._
 
 object SayIt {
 

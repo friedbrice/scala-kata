@@ -1,5 +1,6 @@
-import SmallestTwo._
-import org.scalatest._
+package net.danielbrice.scalakata
+
+import net.danielbrice.scalakata.SmallestTwo._
 
 object SmallestTwo {
 
