@@ -22,6 +22,6 @@ object UsePolymorphicMapReduce {
     = ints      => ???
 
   def sumsProds
-    : List[(Double, Double)] => ((Double, Double),(Double, Double))
+    : List[(Double, Double)] => (Double, Double, Double, Double)
     = pairs                  => ???
 }
