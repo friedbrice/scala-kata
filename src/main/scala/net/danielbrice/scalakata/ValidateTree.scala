@@ -20,7 +20,7 @@ object ValidateTree {
   case object Leaf extends Tree[Nothing]
   case class Branch[T](value : T, left : Tree[T], right : Tree[T]) extends Tree[T]
 
-  def validateTree[Int]
+  def validateTree
     : Tree[Int] => Boolean
     = t         => ???
 }
