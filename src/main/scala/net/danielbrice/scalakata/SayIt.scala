@@ -18,33 +18,28 @@ object SayIt {
    * in a closure.
    */
 
-  // a trait is like a Java interface
-  // the `Sayable` trait is "sealed" to prevent other packages from implementing it
-  sealed trait Sayable {
-    def apply(optStr : Option[String]) : Sayable
+  // a Sayable is a function : Option[String] => Sayable
+  sealed trait Sayable extends Function1[Option[String], Sayable]
+
+  // the SayableTerminate returns itself, regardless of argument
+  case object SayableTerminate extends Sayable {
+    def apply(optStr : Option[String]) : Sayable = SayableTerminate
   }
 
-  // a Sayable can be a (wrapped) `Unit`
-  case class SayableUnit(u : Unit) extends Sayable {
-    val unit : Unit = u
-
-    def apply(optStr : Option[String]) : Sayable = {
-      new SayableUnit(u)
-    }
+  // a Sayable Accumulate is given a function at construction
+  // it simply applies the function it was given
+  case class SayableAccumulate(f: Option[String] => Sayable) extends Sayable {
+    def apply(optStr : Option[String]): Sayable = f(optStr)
   }
 
-  // or a Sayable can be a (wrapped) function
-  case class SayableFunction(f : Option[String] => Sayable) extends Sayable {
-    val function : Option[String] => Sayable = f
-
-    def apply(optStr : Option[String]) : Sayable = {
-      this.function(optStr)
-    }
-  }
-
-  // sayIt take `Some(string)` or `None`
-  // sayIt returns `SayableUnit(u)` or `SayableFunction(f)`
-  def sayIt[T]
+  // sayIt should take an Option[String] and return a Sayable
+  // If the argument is Some(str), then we need to somehow store str
+  // If the argument is None, then we need to println
+  def sayIt
     : Option[String] => Sayable
-    = optStr    => ???
+    = optStr         => {
+
+      ???
+
+    }
 }
