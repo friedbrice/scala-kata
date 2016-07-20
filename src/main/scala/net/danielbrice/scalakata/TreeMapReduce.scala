@@ -19,9 +19,8 @@ object TreeMapReduce {
 
   def treeMapReduce[A,B]
     : (A => B) => ((B, B) => B) => B => Tree[A] => B
-    = f        => g             => z => t       => {
-
-      ??? // TODO: Solve Me!
-
+    = f        => g             => z => {
+      case Leaf => z
+      case Branch(v, l, r) => treeMapReduce(f)(g)(g(f(v), treeMapReduce(f)(g)(z)(r)))(l)
     }
 }
