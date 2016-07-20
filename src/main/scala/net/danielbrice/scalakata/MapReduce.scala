@@ -2,7 +2,7 @@ package net.danielbrice.scalakata
 
 object MapReduce {
 
-  /*
+  /**
    * VII. MapReduce
    *
    * Implement a function with type signature
