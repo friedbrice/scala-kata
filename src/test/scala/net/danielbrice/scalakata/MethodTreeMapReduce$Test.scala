@@ -4,6 +4,7 @@ import net.danielbrice.scalakata.MethodTreeMapReduce._
 import org.scalatest.{FlatSpec, Matchers}
 
 class MethodTreeMapReduce$Test extends FlatSpec with Matchers {
+
   "treeMapReduce" should "return z when passed Leaf" in {
     // given: some stubs
     val f = (x : Any) => x
