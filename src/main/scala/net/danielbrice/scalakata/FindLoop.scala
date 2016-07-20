@@ -16,6 +16,6 @@ object FindLoop {
   case class ListNode(label : Char, next : ListNode)
 
   def findLoop
-  : ListNode => ListNode
-  = start    => ???
+    : ListNode => ListNode
+    = start    => ???
 }
