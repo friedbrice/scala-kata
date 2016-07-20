@@ -17,5 +17,5 @@ object FindLoop {
 
   def findLoop
     : ListNode => ListNode
-    = start    => ??? // TODO: Solve Me!
+    = start    => start
 }

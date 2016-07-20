@@ -80,7 +80,6 @@ Implement a higher-order function with type signature `(A => B) => ((B, B) => B)
 
 The only requirements are that it must be possible for the return value to be different from the third argument and that it "preserves" the order of the passed tree (whatever that means).
 
-
 ## X. MethodTreeMapReduce
 
 Refactor `treeMapReduce` so that it is a method of `Tree[T]` rather than a top-level function.
