@@ -10,7 +10,7 @@ Code Katas for experienced programmers beginning Scala.
 
 **Then:** your function returns the smallest and next smallest elements as a tuple.
 
-_Special Requirement:_ This function is trivial to implement using two list traversals. Try to make your solution use only one list traversal (the hidden tests will pass a series of VERY large lists to justify this design requirement.)
+_Special Requirement:_ This function is trivial to implement using two list traversals. Try to make your solution use only one list traversal (imagine a VERY large lists to justify this design requirement.)
 
 _Source:_ Problem statement from S. Shubin.
 
