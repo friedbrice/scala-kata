@@ -16,5 +16,5 @@ object Pathfinding {
 
   def pathfinding
     : GraphNode => GraphNode => List[GraphNode]
-    = start     => end       => ??? // TODO: Solve Me!
+    = start     => end       => List(start, end) // TODO: Solve Me!
 }
