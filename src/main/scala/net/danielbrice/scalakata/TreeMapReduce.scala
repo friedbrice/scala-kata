@@ -21,6 +21,9 @@ object TreeMapReduce {
     : (A => B) => ((B, B) => B) => B => Tree[A] => B
     = f        => g             => z => {
       case Leaf => z
-      case Branch(v, l, r) => treeMapReduce(f)(g)(g(f(v), treeMapReduce(f)(g)(z)(r)))(l)
+      case Branch(v, l, r) => {
+        val z2 = g(f(v), treeMapReduce(f)(g)(z)(r))
+        treeMapReduce(f)(g)(z2)(l)
+      }
     }
 }
