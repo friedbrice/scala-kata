@@ -66,7 +66,7 @@ _Source:_ "Can you get the loop?" by Devouring @ CodeWars.
 
 Implement a higher-order function with type signature `(A => B) => ((B, B) => B) => B => List[A] => B`.
 
-The only requirement is that it must be possible for the return value to be different from the third argument.
+The only requirements are that it must be possible for the return value to be different from the third argument and that it "preserves" the order of the passed list (whatever that means).
 
 _Source:_ A non-polymorphic version of this kata is a homework problem from Odersky's "Functional Programming Principles in Scala" MOOC on Coursera.
 
@@ -78,7 +78,8 @@ Re-implement "SmallestTwo" and "SumsProds" using the map reduce function.
 
 Implement a higher-order function with type signature `(A => B) => ((B, B) => B) => B => Tree[A] => B`.
 
-The only requirement is that it must be possible for the return value to be different from the third argument.
+The only requirements are that it must be possible for the return value to be different from the third argument and that it "preserves" the order of the passed tree (whatever that means).
+
 
 ## X. MethodTreeMapReduce
 

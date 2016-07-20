@@ -8,8 +8,9 @@ object TreeMapReduce {
    * Implement a function with type signature
    * `(A => B) => ((B, B) => B) => B => Tree[A] => B`.
    *
-   * The only requirement is that it must be possible for the return value to be
-   * different from the third argument.
+   * The only requirements are that it must be possible for the return value to
+   * be different from the third argument and that it "preserves" the order of
+   * the passed tree (whatever that means).
    */
 
   sealed trait Tree[+T]
