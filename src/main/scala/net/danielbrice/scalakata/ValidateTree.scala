@@ -25,8 +25,8 @@ object ValidateTree {
     = {
       case Leaf => true
       case Branch(value, left, right) =>
-        val maxFromLeft = ??? // TODO: implement
-        val minFromRight = ??? // TODO: implement
+        val maxFromLeft = (Int.MinValue :: treeValues(left)).max
+        val minFromRight = (Int.MaxValue :: treeValues(right)).min
         (value > maxFromLeft) &&
         (value < minFromRight) &&
         validateTree(left) &&

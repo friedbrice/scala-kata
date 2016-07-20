@@ -38,4 +38,16 @@ class ValidateTree$Test extends FlatSpec with Matchers {
     // then: false should be returned
     result should be (false)
   }
+
+  "validateTree" should "validate this wonderful tree" in {
+    // given: a delightful, valid tree
+    lazy val t = Branch[Int](2, b, Leaf)
+    lazy val b = Branch[Int](1, Leaf, Leaf)
+
+    // when: validateTree is called
+    lazy val result = validateTree(t)
+
+    // then: true should be returned
+    result should be (true)
+  }
 }
