@@ -1,19 +1,19 @@
 package net.danielbrice.scalakata
 
-object PolymorphicMapReduce {
+object MapReduce {
 
   /*
-   * VII. PolymorphicMapReduce
+   * VII. MapReduce
    *
    * Implement a function with type signature
-   * `(T => S) => (S => R => R) => R => List[T] => R`.
+   * `(A => B) => ((B, B) => B) => B => List[A] => B`.
    *
    * The only requirement is that it must be possible for the return value to be
    * different from the third argument.
    */
 
-  def mapReduce[T,S,R]
-  : (T => S) => (S => R => R) => R => List[T] => R
+  def mapReduce[A,B]
+  : (A => B) => ((B, B) => B) => B => List[A] => B
   = f        => g             => z => l       => {
 
     ???

@@ -1,12 +1,12 @@
 package net.danielbrice.scalakata
 
-object TreePolymorphicMapReduce {
+object TreeMapReduce {
 
   /**
-   * IX. TreePolymorphicMapReduce
+   * IX. TreeMapReduce
    *
    * Implement a function with type signature
-   * `(T => S) => (S => R => R) => R => Tree[T] => R`.
+   * `(A => B) => ((B, B) => B) => B => Tree[A] => B`.
    *
    * The only requirement is that it must be possible for the return value to be
    * different from the third argument.
@@ -16,8 +16,8 @@ object TreePolymorphicMapReduce {
   case object Leaf extends Tree[Nothing]
   case class Branch[T](value: T, left: Tree[T], right: Tree[T]) extends Tree[T]
 
-  def treeMapReduce[T,S,R]
-    : (T => S) => (S => R => R) => R => Tree[T] => R
+  def treeMapReduce[A,B]
+    : (A => B) => ((B, B) => B) => B => Tree[A] => B
     = f        => g             => z => t       => {
 
       ???

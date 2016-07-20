@@ -1,9 +1,9 @@
 package net.danielbrice.scalakata
 
-import net.danielbrice.scalakata.UsePolymorphicMapReduce._
+import net.danielbrice.scalakata.UseMapReduce._
 import org.scalatest.{FlatSpec, Matchers}
 
-class UsePolymorphicMapReduce$Test extends FlatSpec with Matchers {
+class UseMapReduce$Test extends FlatSpec with Matchers {
 
   "smallestTwo" should "work for a two element list with smaller first" in {
     // given: a list with two elements, the smaller coming first

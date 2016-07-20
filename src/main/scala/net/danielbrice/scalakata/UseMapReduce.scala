@@ -1,16 +1,16 @@
 package net.danielbrice.scalakata
 
-object UsePolymorphicMapReduce {
+object UseMapReduce {
 
   /**
-   * VIII. UsePolymorphicMapReduce
+   * VIII. UseMapReduce
    *
    * Re-implement "SmallestTwo" and "SumsProds" using the polymorphic
    * map reduce higher-order function.
    */
 
-  def mapReduce[T,S,R]
-    : (T => S) => (S => R => R) => R => List[T] => R
+  def mapReduce[A,B]
+    : (A => B) => ((B, B) => B) => B => List[A] => B
     = f        => g             => z => ts      => {
 
       ???

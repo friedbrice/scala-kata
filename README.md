@@ -32,7 +32,7 @@ _Source:_ Problem statement from A. Croll's "If Hemingway Wrote JavaScript".
 
 **When:** your function is called on said list,
 
-**Then:** your function returns a type with shape `((a, b),(c, d))`, where `a` is the sum of the first coordinates, `b` is the sum of the second coordinates, `c` is the product of the first coordinates, and `d` is the product of the second coordinates.
+**Then:** your function returns a type with shape `(a, b, c, d)`, where `a` is the sum of the first coordinates, `b` is the sum of the second coordinates, `c` is the product of the first coordinates, and `d` is the product of the second coordinates.
 
 _Source:_ Problem statement from A. Byaly.
 
@@ -62,20 +62,20 @@ _Source:_ "Can you get the loop?" by Devouring @ CodeWars.
 
 **Then:** your function returns the distance between those two nodes and at least one minimal path between the two nodes.
 
-## VII. PolymorphicMapReduce
+## VII. MapReduce
 
-Implement a higher-order function with type signature `(T => S) => (S => R => R) => R => List[T] => R`.
+Implement a higher-order function with type signature `(A => B) => ((B, B) => B) => B => List[A] => B`.
 
 The only requirement is that it must be possible for the return value to be different from the third argument.
 
-_Source:_ A simplified version of this kata is a homework problem from Odersky's "Functional Programming Principles in Scala" MOOC on Coursera.
+_Source:_ A non-polymorphic version of this kata is a homework problem from Odersky's "Functional Programming Principles in Scala" MOOC on Coursera.
 
-## VIII. UsePolymorphicMapReduce
+## VIII. UseMapReduce
 
-Re-implement "SmallestTwo" and "SumsProds" using the polymorphic map reduce function.
+Re-implement "SmallestTwo" and "SumsProds" using the map reduce function.
 
-## IX. TreePolymorphicMapReduce
+## IX. TreeMapReduce
 
-Implement a higher-order function with type signature `(T => S) => (S => R => R) => R => Tree[T] => R`.
+Implement a higher-order function with type signature `(A => B) => ((B, B) => B) => B => Tree[A] => B`.
 
 The only requirement is that it must be possible for the return value to be different from the third argument.
