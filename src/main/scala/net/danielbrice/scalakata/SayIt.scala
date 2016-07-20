@@ -40,7 +40,21 @@ object SayIt {
     : Option[String] => Sayable
     = optStr         => {
 
-      ???
+      var acc = ""
 
+      def helper
+        : Option[String] => Sayable
+        = {
+          case None => {
+            println(acc)
+            SayableTerminate
+          }
+          case Some(str) => {
+            acc = acc + " " + str
+            SayableAccumulate(helper)
+          }
+        }
+
+      helper(optStr)
     }
 }

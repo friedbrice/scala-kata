@@ -21,7 +21,7 @@ object TreeMapReduce {
     : (A => B) => ((B, B) => B) => B => Tree[A] => B
     = f        => g             => z => t       => {
 
-      ???
+      ??? // TODO: Solve Me!
 
     }
 }

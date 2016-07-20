@@ -13,11 +13,10 @@ object MapReduce {
    * the passed list (whatever that means).
    */
 
-  def mapReduce[A,B]
-  : (A => B) => ((B, B) => B) => B => List[A] => B
-  = f        => g             => z => l       => {
-
-    ???
-
-  }
+  def mapReduce[T,S,R]
+    : (T => S) => (S => R => R) => R => List[T] => R
+    = f        => g             => z => {
+      case Nil => z
+      case x :: xs => g(f(x))(mapReduce(f)(g)(z)(xs))
+    }
 }

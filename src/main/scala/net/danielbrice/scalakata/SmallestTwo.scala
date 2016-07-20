@@ -17,6 +17,27 @@ object SmallestTwo {
    */
 
   def smallestTwo
-    : List[Int] => (Int, Int)
-    = ints      => ???
+  : List[Int] => (Int, Int)
+  = ints      => {
+
+    val firstInt = ints.head
+    val secondInt = ints.drop(1).head
+    val restInts = ints.drop(2)
+
+    def helper
+    : (Int, Int) => List[Int] => (Int, Int)
+    = (a, b)     => {
+      case Nil     => (a, b)
+      case x :: xs => {
+        if (x < a) helper(x, a)(xs)
+        else if (x < b) helper(a, x)(xs)
+        else helper(a, b)(xs)
+      }
+    }
+
+    val initA = Math.min(firstInt, secondInt)
+    val initB = Math.max(firstInt, secondInt)
+
+    helper(initA, initB)(restInts)
+  }
 }
