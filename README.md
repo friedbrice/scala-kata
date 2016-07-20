@@ -79,3 +79,7 @@ Re-implement "SmallestTwo" and "SumsProds" using the map reduce function.
 Implement a higher-order function with type signature `(A => B) => ((B, B) => B) => B => Tree[A] => B`.
 
 The only requirement is that it must be possible for the return value to be different from the third argument.
+
+## X. MethodTreeMapReduce
+
+Refactor `treeMapReduce` so that it is a method of `Tree[T]` rather than a top-level function.
