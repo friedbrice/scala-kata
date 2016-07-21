@@ -12,7 +12,7 @@ object Pathfinding {
    * Then: your function returns one minimal path between the two nodes.
    */
 
-  class GraphNode(label : Char, neighbors : => List[GraphNode])
+  case class GraphNode(label : Char, neighbors : Unit => List[GraphNode])
 
   def pathfinding
     : GraphNode => GraphNode => List[GraphNode]
