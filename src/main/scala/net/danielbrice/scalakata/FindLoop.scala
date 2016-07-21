@@ -17,5 +17,20 @@ object FindLoop {
 
   def findLoop
     : ListNode => ListNode
-    = start    => start // TODO: Solve me!
+    = start    => {
+
+      var visited : List[ListNode] = List()
+
+      def helper
+        : ListNode => ListNode
+        = current  => {
+          if (visited.contains(current)) current
+          else {
+            visited = current :: visited
+            helper(current.next())
+          }
+        }
+
+      helper(start)
+    }
 }
