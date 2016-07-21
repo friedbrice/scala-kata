@@ -13,9 +13,7 @@ object FindLoop {
    * Then: your function returns the node at which the list rejoins itself.
    */
 
-  // TODO: This data struct will cause an infinite loop.
-  // TODO: Fix before giving this kata to anyone.
-  case class ListNode(label : Char, next : ListNode)
+  class ListNode(label : Char, next : => ListNode)
 
   def findLoop
     : ListNode => ListNode

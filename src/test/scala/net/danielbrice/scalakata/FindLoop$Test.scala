@@ -7,8 +7,8 @@ class FindLoop$Test extends FlatSpec with Matchers {
 
   "findLoop" should "return node A in list ABA" in {
     // given: a list ABA
-    lazy val nodeA : ListNode = ListNode('A', nodeB)
-    lazy val nodeB : ListNode = ListNode('B', nodeA)
+    lazy val nodeA : ListNode = new ListNode('A', nodeB)
+    lazy val nodeB : ListNode = new ListNode('B', nodeA)
 
     // when: findLoop is called with node A
     lazy val result = findLoop(nodeA)
@@ -19,9 +19,9 @@ class FindLoop$Test extends FlatSpec with Matchers {
 
   "findLoop" should "return node B in list ABCB" in {
     // given: a list ABCB
-    lazy val nodeA : ListNode = ListNode('A', nodeB)
-    lazy val nodeB : ListNode = ListNode('B', nodeC)
-    lazy val nodeC : ListNode = ListNode('C', nodeB)
+    lazy val nodeA : ListNode = new ListNode('A', nodeB)
+    lazy val nodeB : ListNode = new ListNode('B', nodeC)
+    lazy val nodeC : ListNode = new ListNode('C', nodeB)
 
     // when: findLoop is called with node A
     lazy val result = findLoop(nodeA)
@@ -32,9 +32,9 @@ class FindLoop$Test extends FlatSpec with Matchers {
 
   "findLoop" should "return node A in list ABCA" in {
     // given: a list ABCA
-    lazy val nodeA : ListNode = ListNode('A', nodeB)
-    lazy val nodeB : ListNode = ListNode('B', nodeC)
-    lazy val nodeC : ListNode = ListNode('C', nodeA)
+    lazy val nodeA : ListNode = new ListNode('A', nodeB)
+    lazy val nodeB : ListNode = new ListNode('B', nodeC)
+    lazy val nodeC : ListNode = new ListNode('C', nodeA)
 
     // when: findLoop is called with node A
     lazy val result = findLoop(nodeA)

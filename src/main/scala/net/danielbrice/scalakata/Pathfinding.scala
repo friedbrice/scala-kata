@@ -12,9 +12,7 @@ object Pathfinding {
    * Then: your function returns one minimal path between the two nodes.
    */
 
-  // TODO: This data struct will cause an infinite loop.
-  // TODO: Fix before giving this kata to anyone.
-  case class GraphNode(label : Char, neighbors : List[GraphNode])
+  class GraphNode(label : Char, neighbors : => List[GraphNode])
 
   def pathfinding
     : GraphNode => GraphNode => List[GraphNode]
