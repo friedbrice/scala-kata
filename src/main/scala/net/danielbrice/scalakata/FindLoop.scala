@@ -13,9 +13,9 @@ object FindLoop {
    * Then: your function returns the node at which the list rejoins itself.
    */
 
-  case class ListNode(label : Char, next : ListNode)
+  case class ListNode(label : Char, next : Unit => ListNode)
 
   def findLoop
     : ListNode => ListNode
-    = start    => start
+    = start    => start // TODO: Solve me!
 }
