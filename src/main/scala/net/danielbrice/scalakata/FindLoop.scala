@@ -17,18 +17,5 @@ object FindLoop {
 
   def findLoop
     : ListNode => ListNode
-    = start    => {
-
-      def helper
-        : List[ListNode] => ListNode => ListNode
-        = visited        => current  => {
-          if (visited.contains(current)) current
-          else {
-            val newVisited = current :: visited
-            helper(newVisited)(current.next())
-          }
-        }
-
-      helper(List())(start)
-    }
+    = start    => ???
 }

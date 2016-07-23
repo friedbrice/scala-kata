@@ -15,8 +15,5 @@ object MapReduce {
 
   def mapReduce[A,B]
     : (A => B) => ((B, B) => B) => B => List[A] => B
-    = f        => g             => z => {
-      case Nil => z
-      case x :: xs => g(f(x),mapReduce(f)(g)(z)(xs))
-    }
+    = f        => g             => z => l       => ???
 }

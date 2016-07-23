@@ -22,22 +22,5 @@ object ValidateTree {
 
   def validateTree
     : Tree[Int] => Boolean
-    = {
-      case Leaf => true
-      case Branch(value, left, right) =>
-        val maxFromLeft = (Int.MinValue :: treeValues(left)).max
-        val minFromRight = (Int.MaxValue :: treeValues(right)).min
-        (value > maxFromLeft) &&
-        (value < minFromRight) &&
-        validateTree(left) &&
-        validateTree(right)
-    }
-
-  def treeValues
-    : Tree[Int] => List[Int]
-    = {
-      case Leaf => List()
-      case Branch(value, left, right) =>
-        List(value) ++ treeValues(left) ++ treeValues(right)
-    }
+    = tree      => ???
 }
