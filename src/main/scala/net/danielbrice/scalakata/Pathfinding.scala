@@ -5,7 +5,8 @@ object Pathfinding {
   /**
    * VI. Pathfinding
    *
-   * Given: two nodes of a connected directed graph,
+   * Given: two nodes of a strongly-connected directed graph,
+   * (http://mathworld.wolfram.com/ConnectedDigraph.html)
    *
    * When: your function is called with said nodes,
    *
@@ -16,5 +17,14 @@ object Pathfinding {
 
   def pathfinding
     : GraphNode => GraphNode => List[GraphNode]
-    = start     => end       => List(start, end) // TODO: Solve Me!
+    = start     => end       => {
+
+      def helper
+        : List[List[GraphNode]] => List[GraphNode] => List[GraphNode]
+        = paths                 => neighbors       => {
+          ???
+        }
+
+      helper(List())(start.neighbors())
+    }
 }
