@@ -3,7 +3,7 @@ package net.danielbrice.scalakata
 import net.danielbrice.scalakata.TreeMapReduce._
 import org.scalatest.{FlatSpec, Matchers}
 
-class TreeMapReduce$Test extends FlatSpec with Matchers {
+class TreeMapReduceTest extends FlatSpec with Matchers {
 
   "treeMapReduce" should "return z when passed Leaf" in {
     // given: some stubs

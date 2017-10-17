@@ -3,7 +3,7 @@ package net.danielbrice.scalakata
 import net.danielbrice.scalakata.SumsProds._
 import org.scalatest.{FlatSpec, Matchers}
 
-class SumsProds$Test extends FlatSpec with Matchers {
+class SumsProdsTest extends FlatSpec with Matchers {
 
   "sumsProds" should "return (0,0,1,1) for empty list" in {
     // given: a list with two elements, the smaller coming first

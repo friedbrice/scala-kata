@@ -3,7 +3,7 @@ package net.danielbrice.scalakata
 import net.danielbrice.scalakata.SayIt._
 import org.scalatest.{FlatSpec, Matchers}
 
-class SayIt$Test extends FlatSpec with Matchers {
+class SayItTest extends FlatSpec with Matchers {
 
 //    "sayIt" should "print a blank line initially called with None" in {
 //      // given: nothing

@@ -3,7 +3,7 @@ package net.danielbrice.scalakata
 import net.danielbrice.scalakata.MapReduce._
 import org.scalatest.{FlatSpec, Matchers}
 
-class MapReduce$Test extends FlatSpec with Matchers {
+class MapReduceTest extends FlatSpec with Matchers {
 
   "mapReduce" should "return z when called on List()" in {
     // given: some f, g, and zs

@@ -3,7 +3,7 @@ package net.danielbrice.scalakata
 import net.danielbrice.scalakata.FindLoop._
 import org.scalatest.{FlatSpec, Matchers}
 
-class FindLoop$Test extends FlatSpec with Matchers {
+class FindLoopTest extends FlatSpec with Matchers {
 
   "findLoop" should "return node A in list ABA" in {
     // given: a list ABA

@@ -3,7 +3,7 @@ package net.danielbrice.scalakata
 import net.danielbrice.scalakata.SmallestTwo._
 import org.scalatest.{FlatSpec, Matchers}
 
-class SmallestTwo$Test extends FlatSpec with Matchers {
+class SmallestTwoTest extends FlatSpec with Matchers {
 
   "smallestTwo" should "work for a two element list with smaller first" in {
     // given: a list with two elements, the smaller coming first
