@@ -1,7 +1,7 @@
 package net.danielbrice
 
 package object scalakata {
-  
+
   object SmallestTwo {
 
     /**
@@ -213,10 +213,10 @@ package object scalakata {
     }
 
     case object Leaf extends Tree[Nothing] {
-      def mapReduce[S](f: T => S)(g: (S, S) => S)(z: S): S = ???
+      def mapReduce[S](f: Nothing => S)(g: (S, S) => S)(z: S): S = ???
     }
 
-    case class Branch[T](v: T, l: Tree[T], r: Tree[T]) extends Tree[T] {
+    case class Branch[+T](v: T, l: Tree[T], r: Tree[T]) extends Tree[T] {
       def mapReduce[S](f: T => S)(g: (S, S) => S)(z: S): S = ???
     }
   }
