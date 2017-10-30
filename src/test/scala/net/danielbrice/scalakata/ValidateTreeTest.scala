@@ -35,7 +35,7 @@ class ValidateTreeTest extends FlatSpec with Matchers {
     lazy val result = validateTree(t)
 
     // then: true should be returned
-    result should be (true)
+    result should be (false)
   }
 
   "validateTree" should "invalidate this awful tree" in {
