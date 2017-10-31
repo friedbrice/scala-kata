@@ -21,8 +21,19 @@ package object scalakata {
       * list traversals. Try to make your solution use only one list traversal.
       */
 
-    def smallestTwo(ints: List[Int]): (Int, Int) = ???
+    def smallestTwo(ints: List[Int]): (Int, Int) = {
 
+      @tailrec
+      def helper(acc: (Int, Int), rest: List[Int]): (Int, Int) =
+        (acc, rest) match {
+          case (_, Nil) => acc
+          case ((fst, _), x::xs) if x < fst => helper((x, fst), xs)
+          case ((fst, snd), x::xs) if x < snd => helper((fst, x), xs)
+          case (_, _::xs) => helper(acc, xs)
+        }
+
+      helper((Int.MaxValue, Int.MaxValue), ints)
+    }
   }
 
   object SumsProds {
@@ -40,8 +51,19 @@ package object scalakata {
       * product of the second coordinates.
       */
 
-    def sumsProds(pairs: List[(Double, Double)]): (Double, Double, Double, Double) = ???
+    type R = Double
 
+    def sumsProds(pairs: List[(R, R)]): (R, R, R, R) = {
+
+      @tailrec
+      def helper(acc: (R, R, R, R), rest: List[(R, R)]): (R, R, R, R) =
+        (acc, rest) match {
+          case (_, Nil) => acc
+          case ((a, b, c, d), (x,y)::zs) => helper((a+x, b+y, c*x, d*y), zs)
+        }
+
+      helper((0,0,1,1), pairs)
+    }
   }
 
   object SayIt {
@@ -58,10 +80,12 @@ package object scalakata {
       * Then: return the concatenation of the strings supplied in the calls.
       */
 
-    case class Sayable()
+    case class Sayable(acc: String) extends (String => Sayable) with (() => String) {
+      def apply(): String = acc
+      def apply(str: String): Sayable = Sayable(acc + str)
+    }
 
-    def sayIt(str: String): Sayable = ???
-
+    def sayIt(str: String): Sayable = Sayable(str)
   }
 
   object FindLoop {
@@ -79,8 +103,16 @@ package object scalakata {
 
     case class ListNode(label: Char, next: Unit => ListNode)
 
-    def findLoop(start: ListNode): ListNode = ???
+    def findLoop(start: ListNode): ListNode = {
 
+      @tailrec
+      def helper(seen: List[ListNode], current: ListNode): ListNode = {
+        if (seen.contains(current)) current
+        else helper(current::seen, current.next(()))
+      }
+
+      helper(Nil, start)
+    }
   }
 
   object ValidateTree {
@@ -102,8 +134,20 @@ package object scalakata {
     case class Leaf[+T](value: T) extends Tree[T]
     case class Branch[+T](left: Tree[T], right: Tree[T]) extends Tree[T]
 
-    def validateTree(tree: Tree[Int]): Boolean = ???
+    def max(tree: Tree[Int]): Int = tree match {
+      case Leaf(n) => n
+      case Branch(l, r) => math.max(max(l), max(r))
+    }
 
+    def min(tree: Tree[Int]): Int = tree match {
+      case Leaf(n) => n
+      case Branch(l, r) => math.min(min(l), min(r))
+    }
+
+    def validateTree(tree: Tree[Int]): Boolean = tree match {
+      case Leaf(_) => true
+      case Branch(l, r) => (max(l) < min(r)) && validateTree(l) && validateTree(r)
+    }
   }
 
   object Pathfinding {
@@ -121,8 +165,24 @@ package object scalakata {
 
     case class GraphNode(label: Char, neighbors: Unit => List[GraphNode])
 
-    def pathfinding(start: GraphNode, end: GraphNode): List[GraphNode] = ???
+    def pathfinding(start: GraphNode, end: GraphNode): List[GraphNode] = {
 
+      def embrace(paths: List[List[GraphNode]]): List[List[GraphNode]] =
+        paths.filter(_.head == end)
+
+      def extend(paths: List[List[GraphNode]]): List[List[GraphNode]] =
+        paths.flatMap(path => path.head.neighbors(()).map(_::path))
+
+      @tailrec
+      def helper(paths: List[List[GraphNode]]): List[GraphNode] = {
+        embrace(paths) match {
+          case path::_ => path
+          case Nil => helper(extend(paths))
+        }
+      }
+
+      helper(List(List(start))).reverse
+    }
   }
 
   object ListFold {
@@ -138,8 +198,11 @@ package object scalakata {
       * order of the passed list (whatever that means).
       */
 
-    def listFold[A,B](as: List[A], b: B)(op: (B, A) => B): B = ???
-
+    @tailrec
+    def listFold[A,B](as: List[A], b: B)(op: (B, A) => B): B = as match {
+      case Nil => b
+      case x::xs => listFold(xs, op(b, x))(op)
+    }
   }
 
   object TailRecListFold {
@@ -152,10 +215,14 @@ package object scalakata {
 
     def listFold[A, B](as: List[A], b: B)(op: (B, A) => B): B = {
 
-      // @tailrec
-      // def helper
+      @tailrec
+      def helper(acc: B, rest: List[A]): B =
+        rest match {
+          case Nil => acc
+          case x::xs => helper(op(acc, x), xs)
+        }
 
-      ???
+      helper(b, as)
     }
   }
 
@@ -170,10 +237,19 @@ package object scalakata {
 
     import TailRecListFold._
 
-    def smallestTwo(ints: List[Int]): (Int, Int) = ???
+    def smallestTwo(ints: List[Int]): (Int, Int) =
+      listFold(ints, (Int.MaxValue, Int.MaxValue)) {
+        case ((fst, _), next) if next < fst => (next, fst)
+        case ((fst, snd), next) if next < snd => (fst, next)
+        case (acc,_) => acc
+      }
 
-    def sumsProds(pairs: List[(Double, Double)]): (Double, Double, Double, Double) = ???
+    type R = Double
 
+    def sumsProds(pairs: List[(R, R)]): (R, R, R, R) =
+      listFold(pairs, (0.0, 0.0, 1.0, 1.0)) {
+        case ((a, b, c, d), (x, y)) => (a+x, b+y, c*x, d*y)
+      }
   }
 
   object TreeFold {
@@ -192,8 +268,11 @@ package object scalakata {
     case class Leaf[+T](value: T) extends Tree[T]
     case class Branch[+T](left: Tree[T], right: Tree[T]) extends Tree[T]
 
-    def treeFold[A, B](as: Tree[A], f: A => B, g: (B, B) => B): B = ???
-
+    def treeFold[A, B](as: Tree[A], f: A => B, g: (B, B) => B): B =
+      as match {
+        case Leaf(v) => f(v)
+        case Branch(l, r) => g(treeFold(l, f, g), treeFold(r, f, g))
+      }
   }
 
   object TailRecTreeFold {
@@ -210,10 +289,16 @@ package object scalakata {
 
     def treeFold[A, B](as: Tree[A], f: A => B, g: (B, B) => B): B = {
 
-      // @tailrec
-      // def helper
+      @tailrec
+      def helper(stack: List[Tree[A]], acc: Option[B]): B =
+        (stack, acc) match {
+          case (Nil, Some(b)) => b
+          case (Leaf(a)::rest, None) => helper(rest, Some(f(a)))
+          case (Leaf(a)::rest, Some(b)) => helper(rest, Some(g(f(a), b)))
+          case (Branch(l, r)::rest, _) => helper(r::l::rest, acc)
+        }
 
-      ???
+      helper(List(as), None)
     }
   }
 
@@ -231,11 +316,12 @@ package object scalakata {
     }
 
     case class Leaf[+A](value: A) extends Tree[A] {
-      def fold[B](f: A => B, g: (B, B) => B): B = ???
+      def fold[B](f: A => B, g: (B, B) => B): B = f(value)
     }
 
     case class Branch[+A](left: Tree[A], right: Tree[A]) extends Tree[A] {
-      def fold[B](f: A => B, g: (B, B) => B): B = ???
+      def fold[B](f: A => B, g: (B, B) => B): B =
+        g(left.fold(f, g), right.fold(f, g))
     }
   }
 }
