@@ -19,7 +19,7 @@ class PathfindingTest extends FlatSpec with Matchers {
   "pathfinding" should "find a minimal path" in {
     // given: a graph A->B->A
     lazy val nodeA : GraphNode = GraphNode('A', _ => List(nodeB))
-    lazy val nodeB : GraphNode = GraphNode('A', _ => List(nodeA))
+    lazy val nodeB : GraphNode = GraphNode('B', _ => List(nodeA))
 
     // when: pathfinding is called with node A and node A
     lazy val result = pathfinding(nodeA)(nodeA)
