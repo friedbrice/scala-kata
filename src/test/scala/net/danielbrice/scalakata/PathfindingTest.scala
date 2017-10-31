@@ -10,7 +10,7 @@ class PathfindingTest extends FlatSpec with Matchers {
     lazy val nodeA : GraphNode = GraphNode('A', _ => List())
 
     // when: pathfinding is called with node A and node A
-    lazy val result = pathfinding(nodeA)(nodeA)
+    lazy val result = pathfinding(nodeA, nodeA)
 
     // then: the result should be List(A)
     result should be (List(nodeA))
@@ -22,7 +22,7 @@ class PathfindingTest extends FlatSpec with Matchers {
     lazy val nodeB : GraphNode = GraphNode('B', _ => List(nodeA))
 
     // when: pathfinding is called with node A and node A
-    lazy val result = pathfinding(nodeA)(nodeA)
+    lazy val result = pathfinding(nodeA, nodeA)
 
     // then: the result should be List(A)
     result should be (List(nodeA))
@@ -38,7 +38,7 @@ class PathfindingTest extends FlatSpec with Matchers {
     lazy val node6 : GraphNode = GraphNode('6', _ => List(node4))
 
     // when: pathfinding is called with node1 and node6
-    lazy val result = pathfinding(node1)(node6)
+    lazy val result = pathfinding(node1, node6)
 
     // then: the result should be
     result.head should be (node1)

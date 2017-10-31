@@ -121,7 +121,7 @@ package object scalakata {
 
     case class GraphNode(label: Char, neighbors: Unit => List[GraphNode])
 
-    def pathfinding(start: GraphNode)(end: GraphNode): List[GraphNode] = ???
+    def pathfinding(start: GraphNode, end: GraphNode): List[GraphNode] = ???
 
   }
 
